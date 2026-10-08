@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import NavLinks from "./NavLinks";
 
 const Header = () => {
     const date = new Date().toLocaleDateString("bn-BD", {
@@ -39,6 +40,8 @@ const Header = () => {
                     সাইন আপ
                 </button>
             </div>
+
+            <NavLinks/>
         </header>
     );
 };
