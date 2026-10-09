@@ -1,5 +1,6 @@
 import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
+import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
 
 
@@ -27,7 +28,7 @@ export default async function Home() {
     <div>
       <Marquee />
 
-      <div className="grid grid-cols-3 mx-auto max-w-7xl">
+      <div className="grid grid-cols-3 gap-5 mx-auto max-w-7xl py-5">
         {/* News Section */}
         <div className="col-span-2">
           <MainNews news={mainNews} />
@@ -36,7 +37,7 @@ export default async function Home() {
             {otherSection.map(os => <div className="" key={os.curationId}>
               <h1 className="text-xl font-bold border-b-2 pb-1 border-red-700">{os.title}</h1>
 
-              <div className="grid mt-5 grid-cols-3 gap-2">
+              <div className="grid mt-3 grid-cols-3 gap-2">
                 {os.articles.map(news => (
                   <NewsCard key={news.id} news={news} />))}
               </div>
@@ -45,8 +46,8 @@ export default async function Home() {
         </div>
 
         {/* Most read section */}
-        <div className="bg-green-700 col-span-1">
-          <p>World</p>
+        <div className="col-span-1">
+          <MostRead/>
         </div>
       </div>
     </div>
