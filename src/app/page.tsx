@@ -1,10 +1,27 @@
+import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch("https://news-api-v2.vercel.app/api/news/sections")
+  const data = await res.json()
+  const sections = data.data
+  const mainNews = sections[0].articles
+  console.log(mainNews)
   return (
     <div>
       <Marquee/>
-      ক্ষমতাচ্যুত আওয়ামী লীগের পর অন্তর্বর্তীকালীন সরকারের আমলেও এটি নিয়ে বিদেশি কোম্পানির সাথে চুক্তি করার কার্যক্রম শুরু হয়েছিল। কিন্তু বন্দরের শ্রমিক কর্মচারীদের বিরোধিতার মুখে সরকার সেই কার্যক্রম স্থগিত করেছিল।
+      
+      <div className="grid grid-cols-3 mx-auto max-w-7xl">
+        {/* News Section */}
+        <div className="bg-red-700 col-span-2">
+          <MainNews news={mainNews}/>
+        </div>
+
+        {/* Most read section */}
+        <div className="bg-green-700 col-span-1">
+          <p>World</p>
+        </div>
+      </div>
     </div>
   );
 }
