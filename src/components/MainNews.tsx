@@ -13,7 +13,7 @@ interface News {
 const MainNews = ({ news }: {news: News[]}) => {
     const [firstNews, ...otherNews] = news
     return (
-        <div className="flex gap-2">
+        <div className="flex gap-7">
             <div className="card bg-base-100 w-96 shadow-sm">
                 <figure>
                     <Image
@@ -37,7 +37,7 @@ const MainNews = ({ news }: {news: News[]}) => {
             </div>
 
             <div className="grid grid-cols-1 grid-rows-4 gap-2 min-w-0">
-                {otherNews.slice(0, 4).map(on => <div className="card bg-base-100 border border-gray-300 p-5" key={on.id}>
+                {otherNews.slice(0, 5).map(on => <div className="card bg-base-100 border border-gray-300 p-5" key={on.id}>
                     <p className="text-red-600 font-semibold">{firstNews.category}</p>
                     <div>{on.title}</div>
                 </div>)}
